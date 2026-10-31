@@ -1,0 +1,495 @@
+{
+  "Nav": {
+    "menu": {
+      "about": "About Us", "services": "Services", "projects": "Projects",
+      "credentials": "Credentials", "media": "Media Center",
+      "careers": "Careers", "contact": "Contact"
+    },
+    "groups": { "company": "Company", "people": "People", "quality": "Quality" },
+    "links": {
+      "aboutTmyazna": "About TMYAZNA",
+      "mvv": "Mission, vision and values",
+      "leadership": "Leadership",
+      "certificates": "Certificates",
+      "accreditations": "Accreditations",
+      "vendorRegistrations": "Vendor Registrations & Approvals"
+    },
+    "search": "Search",
+    "noResults": "No menu items found",
+    "switch": "العربية"
+  },
+  "Hero": {
+    "titlePart1": "Making a",
+    "titlePart2": "Difference",
+    "slide1Subtitle": "Delivering integrated solutions that create lasting impact across Saudi Arabia.",
+    "slide2TitlePart1": "Your trusted partner in",
+    "slide2TitlePart2": "national development",
+    "slide2Subtitle": "From NEOM to the Red Sea and beyond",
+    "slide3TitlePart1": "Building a",
+    "slide3TitlePart2": "stronger future",
+    "slide3Subtitle": "Construction and facility services across Saudi Arabia.",
+    "ctaButton": "What do you want to build?"
+  },
+  "WhyChooseUs": {
+    "eyebrow": "Reasons to choose TMYAZNA",
+    "heading": "Chosen for the discipline we bring to every stage of delivery, from the first drawing to long-term operation.",
+    "paragraph": "Our clients work with a single accountable team across systems integration, construction and facility services — supported by experienced supervision, certified processes and a workforce trained to the Kingdom's highest standards. It is what lets us take on complex, fast-moving projects and hand them over on programme.",
+    "items": {
+      "item1": {
+        "title": "Aligned with Vision 2030",
+        "description": "Committed to supporting the Kingdom's ambitious goals for development."
+      },
+      "item2": {
+        "title": "Experienced Management and Supervision",
+        "description": "Strong leadership that guides each project with proven expertise."
+      },
+      "item3": {
+        "title": "Professional and Highly Skilled Workforce",
+        "description": "Our team is trained to meet the highest industry standards."
+      },
+      "item4": {
+        "title": "Updated with Latest Innovations & Technology",
+        "description": "Continuously integrating advanced technologies to enhance performance."
+      },
+      "item5": {
+        "title": "Commitment to EHSQ",
+        "description": "Upholding the highest standards in Environment, Health, Safety, and Quality."
+      }
+    }
+  },
+    "Service":{
+    "serviceHeading":"Services Lines",
+    "serviceSubHeading":"We deliver integrated systems, construction and facility solutions across the Kingdom — improving quality of life and building a cleaner, more sustainable future.",
+    "service1":"Systems Integration",
+    "service2":"Construction",
+    "service3":"Facility Services",
+    "service4":"Manpower",
+    "service5":"Environmental"
+  },
+  "Footer": {
+    "sections": {
+      "businessLines": "BUSINESS LINES",
+      "company": "COMPANY",
+      "getInTouch": "GET IN TOUCH"
+    },
+    "tagline": "A clear vision for a promising future.",
+    "links": {
+      "systemsIntegration": "Systems Integration",
+      "construction": "Construction",
+      "facilityServices": "Facility Services",
+      "manpower": "Manpower",
+      "environmental": "Environmental",
+      "aboutUs": "About Us",
+      "ourServices": "Our Services",
+      "ourLeadership": "Our Leadership",
+      "mediaCenter": "Media Center",
+      "contact": "Contact"
+    },
+    "contactInfo": {
+      "address1": "Al-Narjis District, Anas Ibn Malik St,",
+      "address2": "Riyadh"
+    },
+    "legal": {
+      "copyright": "© 2026 TMYAZNA Company Limited. All rights reserved.",
+      "contact": "Contact",
+      "privacyPolicy": "Privacy Policy",
+      "arabicName": "شركة تميزنا المحدودة"
+    }
+  },
+  "Partners": {
+    "heading": "Our Partners",
+    "subheading": "A trusted network of government entities, financial institutions, global operators and world-class consultancies — united behind every project we deliver.",
+    "partnerCount": "{count, plural, one {# Partner} other {# Partners}}",
+    "more": "+{count} more",
+    "categories": {
+      "government": "Government & Semi-Government",
+      "realEstate": "Real Estate & Hospitality",
+      "generalContracting": "General Contracting",
+      "facilitiesManagement": "Facilities Management",
+      "banks": "Banks",
+      "healthcare": "Healthcare",
+      "consultancyProfessionalServices": "Consultancy & Professional Services",
+      "technologyDigitalSolutions": "Technology & Digital Solutions",
+      "nonProfit": "Non-Profit"
+    },
+    "partners": {
+      "millennium": "Millennium Hotels & Resorts",
+      "setraa": "Setraa Advanced Technology Co.",
+      "alNabati": "Al-Nabati Contracting Co.",
+      "jordanPioneer": "Jordan Pioneer Co.",
+      "almoallam": "Abdulwahab M. Al Moallam Sons Co.",
+      "saudiMeters": "Saudi Meters Co.",
+      "shapoorji": "Shapoorji Pallonji Mideast",
+      "rtcc": "Al-Rashid Trading & Contracting Co.",
+      "saudiEmaar": "Saudi Emaar Co.",
+      "muheel": "Muheel Facilities Management",
+      "awaco": "Arab World Agencies (AWACO)",
+      "libanet": "Libanet KSA Co.",
+      "ncms": "National Co. For Management & Services",
+      "alHajry": "Al-hajry Overseas Co.",
+      "alRajhi": "Al Rajhi Bank",
+      "sab": "Saudi Awwal Bank (SAB)",
+      "alinma": "Alinma Bank",
+      "ability": "Ability Clinic Co.",
+      "bicsc": "BICSc",
+      "nahil": "Nahil",
+      "kahatain": "Kahatain Charitable Society for Orphan Care",
+      "msajidona": "Msajidona (Association for Care of Roadside Mosques)",
+      "sap": "SAP"
+    }
+  },
+  "Blog": {
+    "heading": "Latest News & Insights",
+    "subheading": "Stay informed with the latest milestones, projects, and industry insights from TMYAZNA across the Kingdom.",
+    "readMore": "Read more",
+    "mediaCenter": "View all news"
+  },
+  "Media": {
+    "breadcrumb": "Media Center",
+    "eyebrow": "MEDIA CENTER",
+    "heading": "News & Insights",
+    "subheading": "The latest milestones, project updates, certifications and industry insights from TMYAZNA.",
+    "backToMedia": "Back to Media Center",
+    "publishedOn": "Published on",
+    "shareArticle": "Share this article",
+    "relatedArticles": "Related Articles",
+    "searchPlaceholder": "Search articles, topics or categories...",
+    "prevPage": "Previous",
+    "nextPage": "Next",
+    "pageOf": "Page {current} of {total}",
+    "noResults": "No articles found",
+    "noResultsSub": "Try a different keyword or browse all articles."
+  },
+  "Credential": {
+    "breadcrumb": "Credentials",
+    "eyebrow": "Credentials",
+    "heading": "Certified to build the Kingdom's future",
+    "subheading": "Independently audited standards and accreditations that govern how we plan, build, operate and maintain — across every project in the Kingdom.",
+    "heroImageAlt": "Riyadh city skyline",
+    "sectionEyebrow": "OUR STANDARDS",
+    "sectionHeading": "Certifications & Accreditations",
+    "sectionHeading1": "Compliance & Licensing",
+    "venderEmptyText":"Registrations and client approvals will be listed here.",
+    "sectionHeading2": "Vendor Registrations & Approvals",    
+    "viewLens": "View",
+    "viewImage": "Open image",
+    "viewCertificate": "View certificate",
+    "closeImage": "Close image preview",
+    "openLink": "Open credential document",
+    "environment": {
+      "eyebrow": "SUSTAINABILITY & COMPLIANCE",
+      "title": "ISO 14001:2015 — Environmental Management System (EMS)",
+      "subtitle": "TMYAZNA's commitment to sustainability",
+      "description": "This certification reflects TMYAZNA's proactive dedication to minimizing environmental impact, preventing pollution, and promoting sustainable industrial practices. By integrating these global environmental benchmarks into our core operations, we ensure that our infrastructure development and engineering projects are executed with a minimal carbon footprint. This framework directly reinforces our environmental portfolios — including Reverse Osmosis plant integration, greywater recycling, and smart sensor-based waste tracking — ensuring our operations seamlessly align with the eco-friendly mandates of the Saudi Green Initiative and Saudi Vision 2030.",
+      "imageAlt": "Electrical systems being inspected by a technician"
+    },
+    "quality": {
+      "eyebrow": "QUALITY MANAGEMENT",
+      "title": "ISO 9001:2015 — Quality Management System (QMS)",
+      "subtitle": "TMYAZNA's Commitment to Excellence",
+      "description": "This certification validates that TMYAZNA operates a rigorous corporate framework dedicated to continuous improvement, operational efficiency, and uncompromising service quality. By embedding these global standard processes into our daily operations, we guarantee that all complex HVAC, Fire Life Safety, Electrical, and Mechanical installations are executed with absolute technical precision. This framework serves as a vital foundation for satisfying the strict vendor pre-qualification criteria required by Saudi Arabia's landmark giga-projects, while ensuring our procurement, engineering, and project management teams consistently exceed client expectations and fully comply with the Saudi Building Code (SBC).",
+      "imageAlt": "TMYAZNA's Commitment to Excellence"
+    },
+    "facility":{
+      "eyebrow": "FACILITY MANAGEMENT",
+      "title": "TMYAZNA's Commitment to Lifecycle Optimization",
+      "subtitle": "TMYAZNA's Commitment to Lifecycle Optimization",
+      "description": "This certification recognizes TMYAZNA's capability to deliver integrated facility management solutions that meet the highest international benchmarks for safety, efficiency, and comfort. By embedding these specialized standards into our operations, we go beyond basic maintenance to provide proactive, technology-driven Hard and Soft FM services. This framework empowers our on-site technical teams to utilize CAFM and digital tools to reduce downtime, minimize operational costs, and guarantee maximum uptime for critical assets, ensuring a pristine and high-performance environment across the Kingdom's high-traffic commercial and industrial giga-projects.",
+      "imageAlt": "TMYAZNA's Commitment to Lifecycle Optimization"
+    },
+    "occupational":{
+      "eyebrow": "FACILITY MANAGEMENT",
+      "title": "ISO 45001:2018 — Occupational Health & Safety Management System (OH&SMS)",
+      "subtitle": "TMYAZNA's Commitment to Workforce Protection",
+      "description": "This certification validates TMYAZNA's proactive implementation of an advanced framework designed to eliminate workplace hazards, reduce risks, and protect the health and welfare of our people. By enforcing these strict occupational safety protocols across all operations, we guarantee a secure, incident-free environment for our certified teams. This rigorous safety system is vital for executing high-risk activities — such as high-voltage distribution, heavy mechanical installations, and complex civil construction — ensuring full compliance with local civil defense codes and satisfying the stringent safety criteria of international developers like NEOM and Red Sea Global.",
+      "imageAlt": "TMYAZNA's Commitment to Workforce Protection"
+    },
+    "membership":{
+      "eyebrow": "FACILITY MANAGEMENT",
+      "title": "BICSc Corporate Membership — The British Institute of Cleaning Science",
+      "subtitle": "TMYAZNA's Commitment to Elite Hygiene Standards",
+      "description": "This globally recognized membership confirms that TMYAZNA adheres to premium, scientifically backed hygienic standards and sustainable cleaning protocols. By integrating these specialized British standards into our operations, this membership validates our capability to handle sensitive technical environments, medical waste protocols, and luxury finishes using eco-friendly technologies — ensuring a completely sanitized, professional environment that enhances occupant well-being and protects your structural investment.",
+      "imageAlt": "TMYAZNA's Commitment to Elite Hygiene Standards"
+    },
+    "ministry":{
+      "eyebrow": "FACILITY MANAGEMENT",
+      "title": "Ministry of Municipalities and Housing — Contractor Classification Certificate",
+      "subtitle": "TMYAZNA's Commitment to Regulatory Excellence",
+      "description": "This official classification certificate from the Ministry of Municipalities and Housing validates TMYAZNA's technical, financial, and administrative capabilities as a trusted contractor within the Kingdom. It serves as formal recognition of our capacity to execute large-scale multi-disciplinary projects, including general contracting, construction, and specialized engineering services. This qualification officially empowers TMYAZNA to legally participate in major government tenders and secure commercial contracts for infrastructure and industrial developments across Saudi Arabia.",
+      "imageAlt": "TMYAZNA's Commitment to Regulatory Excellence"
+    },
+      "authority":{
+      "eyebrow": "FACILITY MANAGEMENT",
+      "title": "Saudi Contractors Authority (SCA) Membership",
+      "subtitle": "TMYAZNA's Commitment to Industry Best Practices",
+      "description": "Our active registration with the Saudi Contractors Authority (SCA) solidifies TMYAZNA's position as a fully vetted, transparent, and legally compliant organization within the Saudi construction sector. By adhering to the SCA's strict professional regulations, we align our workforce training, safety standards, and project execution methodologies with international benchmarks. This membership reinforces our status as a qualified, strategic partner ready to collaborate on landmark giga-projects driving Saudi Vision 2030.",
+      "imageAlt": "TMYAZNA's Commitment to Industry Best Practices"
+    }
+    
+  },
+  "Contact": {
+    "breadcrumb": "Contact",
+    "eyebrow": "CONTACT",
+    "heading": "Let's talk",
+    "subheading": "Whether you have a project in mind, a partnership opportunity or a general enquiry — our team is ready to help.",
+    "formEyebrow": "SEND US A MESSAGE",
+    "formSubtitle": "We typically respond within one business day.",
+    "fields": {
+      "name": "Full name *",
+      "namePlaceholder": "Your name",
+      "company": "Company",
+      "companyPlaceholder": "Company name",
+      "email": "Email *",
+      "emailPlaceholder": "you@email.com",
+      "phone": "Phone",
+      "phonePlaceholder": "+966 5X XXX XXXX",
+      "subject": "Subject",
+      "subjectOptions": {
+        "general": "General enquiry",
+        "projects": "Projects & Tenders",
+        "facility": "Facility Services",
+        "systems": "Systems Integration",
+        "careers": "Careers",
+        "media": "Media & Press"
+      },
+      "message": "Message *",
+      "messagePlaceholder": "Tell us about your enquiry..."
+    },
+    "submit": "Send message",
+    "submitting": "Sending...",
+    "successTitle": "Thank You!",
+    "successMessage": "Your message has been sent successfully. We will get back to you within one business day.",
+    "sendAnother": "Send another message",
+    "headOffice": "HEAD OFFICE",
+    "address": "Al-Narjis District, Anas Ibn Malik St, Riyadh, Kingdom of Saudi Arabia",
+    "phoneVal": "+966 11 203 1328",
+    "emailVal": "info@tmyazna.sa",
+    "hoursVal": "Sun–Thu, 8:00 AM – 5:00 PM",
+    "mediaTitle": "Media & press",
+    "mediaDesc": "For press enquiries and interview requests:",
+    "mediaLink": "Visit the Media Center",
+    "careersTitle": "Careers",
+    "careersDesc": "Looking to join the team?",
+    "careersLink": "View open positions",
+    "mapEyebrow": "OUR LOCATION",
+    "mapHeading": "Visit our Head Office in Riyadh",
+    "openInGoogleMaps": "Open in Google Maps"
+  },
+
+  "ServicePage":{
+    "breadcrumb":"Service",
+    "eyebrow":"OUR SERVICES",
+    "heading":"One partner for your project's full lifecycle",
+    "subheading":"Five integrated service lines, delivered to the highest standards across the Kingdom of Saudi Arabia.",
+    "heroImageAlt": "TMYAZNA's Service Offerings",
+    "overviewEyebrow": "What we do",
+    "overviewHeading": "Services overview",
+    "overviewSubheading": "An integrated portfolio, built for the Kingdom's transformation.",
+    "overviewIntro": "At TMYAZNA Company Limited, we are honored to be at the forefront of Saudi Arabia's transformation journey, driving excellence, sustainability, and innovation in every project we deliver. We offer general contracting services across all regions of Saudi Arabia, focusing on the five service lines below.",
+    "contractingHeading": "General contracting",
+    "contractingDescription": "We deliver dependable general contracting services across Saudi Arabia through five complementary service lines.",
+    "serviceLines": {
+      "construction": "Construction services",
+      "facility": "Facility services",
+      "maintenance": "Maintenance services",
+      "manpower": "Manpower services",
+      "environmental": "Environmental services"
+    },
+    "overviewSupportingText": "Our services are designed to build a sustainable future, enhance infrastructure, and support economic diversification while creating opportunities for local talent and industries.",
+    "visionEyebrow": "Our commitment",
+    "visionHeading": "Vision 2030",
+    "visionImageAlt": "Saudi Vision 2030 logo",
+    "visionDescription": "We provide an integrated portfolio of engineering, construction, and facility solutions that supports Saudi Arabia's ongoing transformation—building resilient infrastructure, improving operational efficiency, and creating sustainable value for public- and private-sector clients."
+  },
+  "ProjectsPage": {
+    "value": "Value",
+    "year": "Year",
+    "progress": "Progress"
+  },
+  "AboutPage": {
+    "breadcrumb": "About Us",
+    "eyebrow": "ABOUT TMYAZNA",
+    "heading": "Engineering & Civil Construction Excellence",
+    "subheading": "Pioneering world-class engineering, building and civil construction solutions across the Kingdom of Saudi Arabia and beyond.",
+    "heroImageAlt": "About TMYAZNA Engineering and Construction",
+    "aboutSection": {
+      "eyebrow": "ABOUT TMYAZNA",
+      "headingPart1": "Leading Way In",
+      "headingPart2": "Building & Civil Construction",
+      "p1": "TMYAZNA Company Limited, established in 2022, is a Saudi-based multi-disciplinary company specializing in general contracting, including mechanical, electrical, construction, water treatment, waste management, manpower supply, facility management, and operation & maintenance services. Our foundation is built on the principles of excellence, innovation, and sustainability.",
+      "p2": "TMYAZNA is a trusted partner in delivering comprehensive infrastructure and industrial solutions that drive the Kingdom’s development. Our vision extends beyond building structures; it is about building trust, empowering people, and creating sustainable value for future generations. We believe that true success is founded on integrity, quality, and a relentless pursuit of improvement.",
+      "point1": "Over 22+ years of regional and international experience",
+      "point2": "Fully aligned with Saudi Vision 2030 national initiatives",
+      "point3": "Comprehensive civil engineering and infrastructure delivery",
+      "leaderName": "Abdulrahman Al-Tammami",
+      "leaderRole": "Executive Director & Managing Director",
+      "badgeText": "Over 22+ years experience in civil & building construction"
+    },
+    "storySection": {
+      "eyebrow": "OUR STORY",
+      "headingPart1": "The story of how",
+      "companyName": "TMYAZNA",
+      "headingPart2": "was founded",
+      "p1": "With a strong emphasis on quality, safety, and sustainability, we collaborate with both public and private sectors to execute projects that enhance communities, empower local talent, and drive economic diversification.",
+      "modernHeadingPart1": "Pioneering Modern",
+      "modernHeadingPart2": "Engineering Standards",
+      "p2": "Our approach integrates strategic planning, advanced engineering practices, and professional workforce management, ensuring that every project meets international standards and contributes meaningfully to Saudi Arabia’s long-term goals under Vision 2030."
+    },
+    "quoteBanner": {
+      "text": "Great things in business are never done by one person.They’re done by a team of people."
+    },
+    "leadership": {
+      "eyebrow": "EXECUTIVE MESSAGE",
+      "headingPart1": "Shaping the Kingdom's",
+      "headingPart2": "Future Landscape",
+      "leaderName": "Abdulrahman Al-Tammami",
+      "leaderRole": "Chairman & Chief Executive Officer",
+      "col1": "At TMYAZNA, our mission aligns with Saudi Vision 2030, the Kingdom's roadmap for a diversified and sustainable economy. We take pride in contributing to this transformation through infrastructure excellence, engineering innovation, and sustainable solutions. \n\n Our collaborations with NEOM, Red Sea Global, and Qiddiya are more than projects; they signify our commitment to trust and reliability. By utilizing modern technologies and local expertise, we create a future where efficiency meets sustainability.",
+      "col2": "Looking forward, our strategy emphasizes technological advancement, sustainable growth, and operational excellence. We are committed to smart systems and environmentally responsible practices, aligning with the Saudi Green Initiatives and supporting the goals of Vision 2030.\n\n As the CEO of TMYAZNA Limited Company, I am grateful to our clients, partners, and employees for their unwavering support."
+    },
+    "missionVision": {
+      "missionTitle": "Our Mission",
+      "missionDesc": "Our mission is to deliver reliable, high-quality, efficient and sustainable solutions across construction, systems integration and facility services. We strive to exceed client expectations through innovation, operational excellence and a strong commitment to safety and environmental responsibility.",
+      "strategicCommitment": "Strategic Commitment",
+      "dedicatedHeading": "We Are Dedicated To",
+      "corePillar": "Core Pillar",
+      "d1Title": "Engineering Excellence",
+      "d1Desc": "Driving economic diversification and local empowerment by supporting Saudi Vision 2030.",
+      "d2Title": "Sustainable Innovation",
+      "d2Desc": "Delivering smart, eco-friendly, reliable and cost-effective solutions in engineering and maintenance.",
+      "d3Title": "Client Partnership",
+      "d3Desc": "Ensuring the highest quality in all services, committed to excellence and client satisfaction.",
+      "lookingTowardsTomorrow": "Looking Towards Tomorrow",
+      "visionTitle": "Our Vision",
+      "visionDesc": "“To be the leader of innovative and sustainable solutions that empower communities and drive the development of a modern Kingdom.”"
+    },
+    "stats": {
+      "stat1": { "value": "2022", "suffix": "", "label": "Year Established" },
+      "stat2": { "value": "150", "suffix": "+", "label": "Completed Projects" },
+      "stat3": { "value": "1200", "suffix": "+", "label": "Professional Workforce" },
+      "stat4": { "value": "5", "suffix": "", "label": "Branches Across KSA" }
+    },
+    "values": {
+      "eyebrow": "OUR CODE OF ETHICS",
+      "headingPart1": "Core",
+      "headingPart2": "Values",
+      "subtitle": "The foundational principles that guide every decision and project at TMYAZNA.",
+      "clientFirst": { "title": "High Effciency:", "desc": "Optimizing processes to deliver results promptly and effectively" },
+      "flexibility": { "title": "Quality:", "desc": "Committing to delivering superior products and services." },
+      "teamwork": { "title": "Safety:", "desc": "Prioritizing the health and welfare of our employees,clients, and the community." },
+      "quality": { "title": "Reliability:", "desc": "Building trust through dependable performance and accountability." },
+      "empowerment": { "title": "Empowerment:", "desc": "Encouraging and enabling our employees to take initiative and responsibility." },
+      "excellence": { "title": "Integrity:", "desc": "Maintaining honesty and transparency in all our interactions." },
+      "safety": { "title": "Teamwork:", "desc": "Fostering collaboration and mutual support among our team members." },
+      "integrity": { "title": "Excellence:", "desc": "Striving for the highest standards in everything we do." },
+      "innovation": { "title": "Innovation:", "desc": "Embracing new ideas andtechnologies to drive progress." }
+    },
+    "team": {
+      "eyebrow": "EXECUTIVE LEADERSHIP",
+      "headingPart1": "Meet",
+      "headingPart2": "Our Team",
+      "subtitle": "Experienced industry leaders driving vision, execution, and engineering excellence.",
+      "tba": "To be announced",
+      "bios": {
+        "leader": "Leading strategic growth and project excellence across Saudi Arabia's premier civil and infrastructure developments with over two decades of engineering leadership.",
+        "coo": "Overseeing operations, site execution, quality assurance, and multidisciplinary coordination across all ongoing national projects.",
+        "cfo": "Managing capital allocation, corporate governance, fiscal discipline, and financial sustainability across regional contracts.",
+        "cco": "Driving client relationships, strategic partnerships, procurement, and commercial bidding for landmark developments.",
+        "cso": "Guiding company alignment with Saudi Vision 2030, sustainable transformation, and new market expansion.",
+        "cpo": "Directing high-value engineering execution, project lifecycles, contractor networks, and on-time commissioning."
+      },
+      "roles": {
+        "coo": "Chief Operating Officer",
+        "cfo": "Chief Financial Officer",
+        "cco": "Chief Commercial Officer",
+        "cso": "Chief Strategy Officer",
+        "cpo": "Chief Projects Officer"
+      }
+    },
+    "videoReview": {
+      "videoEyebrow": "CORPORATE FILM",
+      "videoHeading": "Watch Video About Company",
+      "videoSub": "Engineering Excellence in Action across the Kingdom",
+      "playVideo": "Play Video",
+      "reviewEyebrow": "CLIENT TESTIMONIAL",
+      "reviewHeading": "Customer Reviews",
+      "reviewQuote": "TMYAZNA executed our multi-phase civil infrastructure project with exceptional technical skill, on-time delivery, and adherence to top safety standards.",
+      "reviewerName": "Eng. Fahad Al-Otaibi",
+      "reviewerRole": "Infrastructure Development Director",
+      "partnersEyebrow": "TRUSTED BY LEADING ENTERPRISES"
+    }
+  },
+  "Careers": {
+    "breadcrumb": "Careers",
+    "eyebrow": "CAREERS AT TMYAZNA",
+    "heading": "Build the Kingdom's future with us",
+    "subheading": "Join a team where experience meets ambition — and where your work shapes the landmark projects of Saudi Vision 2030.",
+    "viewPositions": "View open positions",
+    "stat1": { "value": "5", "label": "Open position" },
+    "stat2": { "value": "1000", "label": "Employee" },
+    "stat3": { "value": "14", "label": "AVG Hiring Time" },
+    "Day":"Day",
+    "whyUsEyebrow": "WHY WORK WITH US",
+    "whyUsTitle": "People are the central axis of our decisions — and the main engine of our growth.",
+    "lifeAtTitle": "Life at TMYAZNA",
+    "lifeAtSubtitle": "A young, ambitious field company building tomorrow's landmarks.",
+    "openPositionsEyebrow": "OPEN POSITIONS",
+    "filterByDept": "Filter roles by department:",
+    "viewAllJobs": "View all jobs",
+    "showLessJobs": "Show less",
+    "allDept": "All Roles",
+    "locationLabel": "Location",
+    "typeLabel": "Employment Type",
+    "applyNow": "Apply Now",
+    "processEyebrow": "OUR HIRING PROCESS",
+    "processTitle": "A simple, transparent pathway from your first application to your first day on site.",
+    "dontSeeRole": "DON'T SEE YOUR ROLE?",
+    "sendCv": "Send us your CV",
+    "sendCvDesc": "We're always looking for talented professionals across engineering, construction, facilities and the environment. Tell us how you'd like to contribute.",
+    "submitApplication": "Submit your application",
+    "applicationEyebrow": "APPLICATION",
+    "applicationHeading": "Apply to join TMYAZNA",
+    "applicationSubheading": "review the role below, then send us your details.",
+    "backToPositions": "Back to open positions",
+    "whatYouDo": "WHAT YOU'LL DO",
+    "whatYouBring": "WHAT YOU'LL BRING",
+    "formTitle": "Application form",
+    "formSubtitle": "Fields marked * are required — it only takes a few minutes.",
+    "personalDetails": "Personal details",
+    "personalDetailsSub": "Tell us how to reach you.",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "phone": "Phone",
+    "city": "City of residence",
+    "nationality": "Nationality",
+    "positionExperience": "Position & experience",
+    "positionExperienceSub": "Confirm the role and your background.",
+    "position": "Position",
+    "selectPosition": "Select a position",
+    "experience": "Years of experience",
+    "currentEmployer": "Current / most recent employer",
+    "noticePeriod": "Notice period",
+    "linkedin": "LinkedIn / portfolio (optional)",
+    "documentsTitle": "Documents & cover note",
+    "documentsSub": "Attach your CV and tell us why you're a fit.",
+    "cvUpload": "Click to upload your CV",
+    "cvFormats": "PDF, DOC or DOCX — max 10MB",
+    "coverNote": "Cover note (optional)",
+    "coverNotePlaceholder": "Tell us briefly why you'd be a great fit for TMYAZNA...",
+    "consentText": "I confirm the information above is accurate and consent to TMYAZNA storing my data for recruitment purposes, in line with the Privacy Policy.",
+    "submitBtn": "Submit application",
+    "submitting": "Submitting application...",
+    "successTitle": "Application Submitted!",
+    "successDesc": "Thank you for applying. Our talent acquisition team will review your application and get in touch.",
+    "questions": "Questions?",
+    "questionsSub": "Reach our talent team directly:"
+  },
+  "Presence":{
+    "breadcrumb": "Presence",
+    "eyebrow": "PRESENCE",
+    "heading": "Projects across the Kingdom of Saudi Arabia",
+    "subheading": "Click a region to explore its projects"    
+  }
+
+}
