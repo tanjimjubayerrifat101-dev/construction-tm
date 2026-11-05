@@ -2,8 +2,9 @@
 
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { MapPin } from "lucide-react";
-import { FLAGSHIP_PROJECT, getLocalizedProject } from "@/data/projectsData";
+import { MapPin, Loader2 } from "lucide-react";
+import { useGetProjectsQuery } from "@/redux/features/project/projectApi";
+import { resolveImageUrl } from "@/utils/resolveImageUrl";
 
 interface FlagshipProjectProps {
   isRtl?: boolean;
@@ -11,7 +12,27 @@ interface FlagshipProjectProps {
 
 export default function FlagshipProject({ isRtl = false }: FlagshipProjectProps) {
   const t = useTranslations("ProjectsPage");
-  const project = getLocalizedProject(FLAGSHIP_PROJECT, isRtl);
+
+  const { data, isLoading } = useGetProjectsQuery({ limit: 1, isActive: "true" });
+  // Find flagship project (isFlagship = true) or fall back to first project
+  const allProjects = data?.data ?? [];
+  const project = allProjects.find((p) => p.isFlagship) ?? allProjects[0];
+
+  if (isLoading) {
+    return (
+      <section className="container mb-20 lg:mb-28 flex items-center justify-center py-16">
+        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+      </section>
+    );
+  }
+
+  if (!project) return null;
+
+  const title = isRtl ? project.title.ar : project.title.en;
+  const location = isRtl ? project.location.ar : project.location.en;
+  const description = isRtl ? project.description.ar : project.description.en;
+  const value = isRtl ? project.value.ar : project.value.en;
+  const imageUrl = resolveImageUrl(project.image);
 
   return (
     <section className="container mb-20 lg:mb-28">
@@ -28,31 +49,31 @@ export default function FlagshipProject({ isRtl = false }: FlagshipProjectProps)
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
           {/* Image Column */}
           <div className="lg:col-span-6 relative aspect-[16/10] lg:aspect-auto lg:min-h-[420px] overflow-hidden bg-slate-900">
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
-            />
+            {imageUrl ? (
+              <Image
+                src={imageUrl}
+                alt={title}
+                fill
+                unoptimized
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+              />
+            ) : (
+              <div className="absolute inset-0 bg-gradient-to-br from-[#001833] to-[#004187] flex items-center justify-center">
+                <span className="text-white/20 text-6xl font-black">TM</span>
+              </div>
+            )}
             {/* Dark gradient scrim */}
             <div
               aria-hidden="true"
               className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"
             />
 
-            {/* Badges on Image - status badge removed */}
-            {/* <div className="absolute top-5 start-5 z-10">
-              <span className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#001833]/85 text-white backdrop-blur-md border border-white/20">
-                {project.sector}
-              </span>
-            </div> */}
-
             {/* Location on Image Bottom */}
             <div className="absolute bottom-5 start-5 flex items-center gap-1.5 text-xs font-medium text-white/90 z-10 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
               <MapPin className="w-3.5 h-3.5 text-secondary" />
-              <span>{project.location}</span>
+              <span>{location}</span>
             </div>
           </div>
 
@@ -60,10 +81,10 @@ export default function FlagshipProject({ isRtl = false }: FlagshipProjectProps)
           <div className="lg:col-span-6 p-8 sm:p-10 lg:p-14 flex flex-col justify-between">
             <div>
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#001833] leading-snug mb-4">
-                {project.title}
+                {title}
               </h3>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal mb-8">
-                {project.description}
+                {description}
               </p>
             </div>
 
@@ -75,7 +96,7 @@ export default function FlagshipProject({ isRtl = false }: FlagshipProjectProps)
                     {t("value")}
                   </span>
                   <span className="text-base sm:text-lg lg:text-xl font-bold text-[#001833]">
-                    {project.value}
+                    {value}
                   </span>
                 </div>
                 <div>

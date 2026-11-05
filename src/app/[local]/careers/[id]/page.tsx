@@ -10,16 +10,25 @@ interface PageProps {
   params: Promise<{ id: string; local: string }>;
 }
 
-export function generateStaticParams() {
-  return JOB_POSITIONS.map((job) => ({
-    id: job.id,
-  }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id } = await params;
   const locale = await getLocale();
-  const job = JOB_POSITIONS.find((j) => j.id === id);
+  let job = JOB_POSITIONS.find((j) => j.id === id);
+
+  if (!job) {
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api/v1";
+      const res = await fetch(`${apiUrl}/careers/jobs/${id}`, { cache: "no-store" });
+      if (res.ok) {
+        const json = await res.json();
+        job = json.data;
+      }
+    } catch (e) {
+      // ignore
+    }
+  }
 
   if (!job) {
     return {
@@ -40,7 +49,20 @@ export default async function CareerDetailPage({ params }: PageProps) {
   const { id } = await params;
   const locale = await getLocale();
   const t = await getTranslations("Careers");
-  const job = JOB_POSITIONS.find((j) => j.id === id);
+  let job = JOB_POSITIONS.find((j) => j.id === id);
+
+  if (!job) {
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api/v1";
+      const res = await fetch(`${apiUrl}/careers/jobs/${id}`, { cache: "no-store" });
+      if (res.ok) {
+        const json = await res.json();
+        job = json.data;
+      }
+    } catch (e) {
+      // ignore
+    }
+  }
 
   if (!job) {
     const defaultJob = JOB_POSITIONS[0];
@@ -77,5 +99,3 @@ export default async function CareerDetailPage({ params }: PageProps) {
     </main>
   );
 }
-
-

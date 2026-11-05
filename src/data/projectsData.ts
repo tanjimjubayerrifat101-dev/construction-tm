@@ -34,7 +34,7 @@ export interface ProjectItem {
   value: string;
   year: string;
   progress: number;
-  image: StaticImageData;
+  image: StaticImageData | string;
 }
 
 export interface ProjectStat {

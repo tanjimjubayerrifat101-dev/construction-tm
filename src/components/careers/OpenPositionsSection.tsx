@@ -8,6 +8,8 @@ import { CAREER_DEPARTMENTS, JOB_POSITIONS, type JobPosition } from "@/data/care
 import FadeUp from "@/utils/FadeUp";
 import RollingButton from "@/utils/RollingButton";
 
+import { useGetJobsQuery } from "@/redux/features/career/careerApi";
+
 type JobWithPurpose = JobPosition & {
   purpose?: { en: string; ar: string };
 };
@@ -18,6 +20,27 @@ export default function OpenPositionsSection() {
   const isAr = locale === "ar";
   const [activeDepartment, setActiveDepartment] = useState<string>("all");
   const [showAllPositions, setShowAllPositions] = useState(false);
+
+  const { data: apiJobsData } = useGetJobsQuery({});
+
+  const allJobs: JobPosition[] =
+    apiJobsData?.data && apiJobsData.data.length > 0
+      ? apiJobsData.data.map((j) => ({
+          id: j.jobId || j._id,
+          title: j.title,
+          departmentId: j.departmentId as any,
+          department: j.department,
+          location: j.location,
+          type: j.type,
+          experience: j.experience,
+          postedDate: j.postedDate || "Recently",
+          overview: j.overview,
+          responsibilities: j.responsibilities,
+          requirements: j.requirements,
+          icon: Briefcase,
+        }))
+      : JOB_POSITIONS;
+
   const jobsToggleLabel = showAllPositions
     ? isAr
       ? "عرض أقل"
@@ -26,9 +49,10 @@ export default function OpenPositionsSection() {
       ? "عرض جميع الوظائف"
       : "View all jobs";
 
-  const filteredPositions = activeDepartment === "all"
-    ? JOB_POSITIONS
-    : JOB_POSITIONS.filter((pos) => pos.departmentId === activeDepartment);
+  const filteredPositions =
+    activeDepartment === "all"
+      ? allJobs
+      : allJobs.filter((pos) => pos.departmentId === activeDepartment);
   const visiblePositions = showAllPositions
     ? filteredPositions
     : filteredPositions.slice(0, 6);

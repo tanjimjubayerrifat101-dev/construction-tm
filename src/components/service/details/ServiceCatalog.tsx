@@ -38,6 +38,7 @@ export default function ServiceCatalog({
                 src={item.image}
                 alt={item.title}
                 fill
+                unoptimized={typeof item.image === "string"}
                 sizes="(max-width: 1024px) 100vw, 25vw"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
               />

@@ -13,6 +13,9 @@ export default function Navbar() {
   const t = useTranslations("Nav");
   const locale = useLocale();
   const pathname = usePathname();
+  if (pathname && pathname.startsWith("/admin")) {
+    return null;
+  }
   const otherLocale = locale === "en" ? "ar" : "en";
   const homeScrollStorageKey = "locale-switch-home-scroll";
 

@@ -1,14 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { SAUDI_REGIONS } from "@/data/saudiMapData";
-import { PROJECTS_LIST, getLocalizedProject, type ProjectItem } from "@/data/projectsData";
+import { PROJECTS_LIST, getLocalizedProject, type ProjectItem, type LocalizedProjectItem } from "@/data/projectsData";
+import { useGetProjectsQuery } from "@/redux/features/project/projectApi";
 import SaudiArabiaMap from "./SaudiArabiaMap";
 import PresenceRegionTabs from "./PresenceRegionTabs";
 import PresenceActivitiesOverview from "./PresenceActivitiesOverview";
 import PresenceProjectCard from "./PresenceProjectCard";
 import PresenceEmptyCard from "./PresenceEmptyCard";
+import { resolveImageUrl } from "@/utils/resolveImageUrl";
 
 interface PresenceSectionProps {
   isRtl?: boolean;
@@ -19,6 +21,9 @@ export default function PresenceSection({ isRtl = false }: PresenceSectionProps)
   // selectedRegionId: null = "all" / overview, or a specific region ID like "eastern-province", "riyadh", etc.
   const [selectedRegionId, setSelectedRegionId] = useState<string | null>(null);
   const [hoveredRegionId, setHoveredRegionId] = useState<string | null>(null);
+
+  // Fetch dynamic projects from backend
+  const { data: apiProjectsData } = useGetProjectsQuery({ limit: 100 });
 
   // Handle region selection from map, tabs or overview list
   const handleSelectRegion = (regionId: string) => {
@@ -38,13 +43,38 @@ export default function PresenceSection({ isRtl = false }: PresenceSectionProps)
     ? SAUDI_REGIONS.find((r) => r.id === selectedRegionId)
     : null;
 
-  // Retrieve projects for this region
-  const regionProjects = selectedRegion
-    ? selectedRegion.projectIds
-        .map((id) => PROJECTS_LIST.find((p) => p.id === id))
-        .filter((p): p is ProjectItem => Boolean(p))
-        .map((p) => getLocalizedProject(p, isRtl))
-    : [];
+  // Retrieve projects for this region (Dynamic from API + static fallback)
+  const regionProjects = useMemo(() => {
+    if (!selectedRegion) return [];
+
+    const dynamicList = apiProjectsData?.data || [];
+    const matchedFromApi = dynamicList.filter(
+      (p) => p.regionId === selectedRegion.id || (selectedRegion.projectIds && selectedRegion.projectIds.includes(p.projectId))
+    );
+
+    if (matchedFromApi.length > 0) {
+      return matchedFromApi.map((p): LocalizedProjectItem => ({
+        id: p.projectId || p._id,
+        title: isRtl ? (p.title?.ar || p.title?.en) : (p.title?.en || p.title?.ar),
+        sector: isRtl ? (p.sector?.ar || p.sector?.en) : (p.sector?.en || p.sector?.ar),
+        sectorSlug: (p.sectorSlug || "systems-integration") as any,
+        progress: p.progress || 100,
+        status: p.statusCode || "Ongoing",
+        statusText: isRtl ? (p.status?.ar || p.status?.en) : (p.status?.en || p.status?.ar),
+        location: isRtl ? (p.location?.ar || p.location?.en) : (p.location?.en || p.location?.ar),
+        description: isRtl ? (p.description?.ar || p.description?.en) : (p.description?.en || p.description?.ar),
+        value: isRtl ? (p.value?.ar || p.value?.en) : (p.value?.en || p.value?.ar),
+        year: p.year || "2026",
+        image: resolveImageUrl(p.image) || "/placeholder-project.jpg",
+      }));
+    }
+
+    // Fallback to static
+    return selectedRegion.projectIds
+      .map((id) => PROJECTS_LIST.find((p) => p.id === id))
+      .filter((p): p is ProjectItem => Boolean(p))
+      .map((p) => getLocalizedProject(p, isRtl));
+  }, [selectedRegion, apiProjectsData, isRtl]);
 
   const regionDisplayName = selectedRegion
     ? isRtl

@@ -3,13 +3,11 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { MapPin, ChevronLeft, ChevronRight } from "lucide-react";
-import {
-  PROJECT_SECTORS,
-  PROJECTS_LIST,
-  getLocalizedProject,
-  type ProjectSectorSlug,
-} from "@/data/projectsData";
+import { MapPin, ChevronLeft, ChevronRight, Loader2, AlertCircle } from "lucide-react";
+import { useGetProjectsQuery } from "@/redux/features/project/projectApi";
+import { PROJECT_SECTORS } from "@/data/projectsData";
+import type { ProjectSectorSlug } from "@/data/projectsData";
+import { resolveImageUrl } from "@/utils/resolveImageUrl";
 import {
   Pagination,
   PaginationContent,
@@ -31,21 +29,15 @@ export default function ProjectsFilterGrid({
   const [activeSector, setActiveSector] = useState<ProjectSectorSlug>("all");
   const [currentPage, setCurrentPage] = useState<number>(1);
 
-  // Filter projects by active sector
-  const filteredProjects =
+  const { data, isLoading, isError } = useGetProjectsQuery(
     activeSector === "all"
-      ? PROJECTS_LIST
-      : PROJECTS_LIST.filter((p) => p.sectorSlug === activeSector);
+      ? { page: currentPage, limit: ITEMS_PER_PAGE }
+      : { page: currentPage, limit: ITEMS_PER_PAGE, sectorSlug: activeSector }
+  );
 
-  // Pagination calculation
-  const totalPages = Math.ceil(filteredProjects.length / ITEMS_PER_PAGE);
-  const displayedProjects = filteredProjects.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE
-  );
-  const localizedProjects = displayedProjects.map((project) =>
-    getLocalizedProject(project, isRtl)
-  );
+  const projects = data?.data ?? [];
+  const totalItems = data?.meta?.total ?? 0;
+  const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
 
   const handleSectorChange = (slug: ProjectSectorSlug) => {
     setActiveSector(slug);
@@ -123,107 +115,145 @@ export default function ProjectsFilterGrid({
         </div>
       </div>
 
-      {/* Modern Projects Grid (4 columns on 2xl devices as requested) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 sm:gap-8">
-        {localizedProjects.map((project) => (
-          <div
-            key={project.id}
-            className="group relative flex flex-col bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-slate-200/90 shadow-xs hover:shadow-2xl hover:border-slate-300 transition-all duration-500 hover:-translate-y-1.5 select-none"
-          >
-            {/* Taller Card Image Container with smooth hover zoom */}
-            <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-900">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, (max-width: 1536px) 33vw, 25vw"
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-              />
+      {/* Loading State */}
+      {isLoading && (
+        <div className="flex items-center justify-center py-24">
+          <Loader2 className="w-10 h-10 animate-spin text-primary" />
+        </div>
+      )}
 
-              {/* Gradient Scrims for contrast */}
+      {/* Error State */}
+      {isError && (
+        <div className="flex flex-col items-center justify-center py-24 gap-3 text-center">
+          <AlertCircle className="w-10 h-10 text-rose-500" />
+          <p className="text-sm font-semibold text-slate-600">
+            {isRtl ? "تعذّر تحميل المشاريع." : "Failed to load projects."}
+          </p>
+        </div>
+      )}
+
+      {/* Empty State */}
+      {!isLoading && !isError && projects.length === 0 && (
+        <div className="text-center py-16 bg-white rounded-2xl border border-gray-200">
+          <p className="text-muted-foreground text-base">
+            {isRtl
+              ? "لا توجد مشاريع في هذا القطاع حالياً."
+              : "No projects found in this sector."}
+          </p>
+        </div>
+      )}
+
+      {/* Modern Projects Grid */}
+      {!isLoading && !isError && projects.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 sm:gap-8">
+          {projects.map((project) => {
+            const title = isRtl ? project.title.ar : project.title.en;
+            const location = isRtl ? project.location.ar : project.location.en;
+            const description = isRtl ? project.description.ar : project.description.en;
+            const value = isRtl ? project.value.ar : project.value.en;
+            const imageUrl = resolveImageUrl(project.image);
+
+            return (
               <div
-                aria-hidden="true"
-                className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/50 pointer-events-none"
-              />
+                key={project._id}
+                className="group relative flex flex-col bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-slate-200/90 shadow-xs hover:shadow-2xl hover:border-slate-300 transition-all duration-500 hover:-translate-y-1.5 select-none"
+              >
+                {/* Taller Card Image Container with smooth hover zoom */}
+                <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-900">
+                  {imageUrl ? (
+                    <Image
+                      src={imageUrl}
+                      alt={title}
+                      fill
+                      unoptimized
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, (max-width: 1536px) 33vw, 25vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#001833] to-[#004187] flex items-center justify-center">
+                      <span className="text-white/30 text-5xl font-black">TM</span>
+                    </div>
+                  )}
 
-              {/* Top Sector Category Pill (Status badge removed as requested) */}
-              {/* <div className="absolute top-3.5 start-3.5 z-10">
-                <span className="px-3 py-1.5 rounded-full text-xs font-semibold bg-black/60 text-white backdrop-blur-md border border-white/20 shadow-xs">
-                  {project.sector}
-                </span>
-              </div> */}
-
-              {/* Bottom Location Pin */}
-              <div className="absolute bottom-3.5 start-3.5 z-10 flex items-center gap-1.5 text-xs sm:text-sm font-medium text-white/95 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15">
-                <MapPin className="w-3.5 h-3.5 text-secondary shrink-0" />
-                <span>{project.location}</span>
-              </div>
-            </div>
-
-            {/* Card Content with Refined Font Size */}
-            <div className="flex flex-col flex-1 p-6 sm:p-7 justify-between">
-              <div>
-                <h3 className="text-lg sm:text-xl font-bold text-[#001833] group-hover:text-secondary transition-colors duration-200 leading-snug mb-2.5 line-clamp-2">
-                  {project.title}
-                </h3>
-
-                <p className="text-sm text-slate-600 leading-relaxed font-normal mb-6 line-clamp-3">
-                  {project.description}
-                </p>
-              </div>
-
-              {/* Redesigned Sleek Metrics & Progress Bar */}
-              <div className="pt-4 border-t border-slate-100 flex flex-col gap-3">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <span className="block text-[11px] font-semibold uppercase tracking-wider text-slate-400">
-                      {t("value")}
-                    </span>
-                    <span className="text-base sm:text-lg font-bold text-[#001833]">
-                      {project.value}
-                    </span>
-                  </div>
-                  <div className="text-center">
-                    <span className="block text-[11px] font-semibold uppercase tracking-wider text-slate-400">
-                      {t("year")}
-                    </span>
-                    <span className="text-base sm:text-lg font-semibold text-slate-700">
-                      {project.year}
-                    </span>
-                  </div>
-                  <div className="text-end">
-                    <span className="block text-[11px] font-semibold uppercase tracking-wider text-slate-400">
-                      {t("progress")}
-                    </span>
-                    <span
-                      className={`text-base sm:text-lg font-bold ${
-                        project.progress === 100 ? "text-emerald-600" : "text-secondary"
-                      }`}
-                    >
-                      {project.progress}%
-                    </span>
-                  </div>
-                </div>
-
-                {/* Refined Slim Progress Bar */}
-                <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                  {/* Gradient Scrims for contrast */}
                   <div
-                    className={`h-full rounded-full transition-all duration-1000 ${
-                      project.progress === 100
-                        ? "bg-emerald-500"
-                        : "bg-gradient-to-r from-primary to-secondary"
-                    }`}
-                    style={{ width: `${project.progress}%` }}
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/50 pointer-events-none"
                   />
+
+                  {/* Bottom Location Pin */}
+                  <div className="absolute bottom-3.5 start-3.5 z-10 flex items-center gap-1.5 text-xs sm:text-sm font-medium text-white/95 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15">
+                    <MapPin className="w-3.5 h-3.5 text-secondary shrink-0" />
+                    <span>{location}</span>
+                  </div>
+                </div>
+
+                {/* Card Content */}
+                <div className="flex flex-col flex-1 p-6 sm:p-7 justify-between">
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-bold text-[#001833] group-hover:text-secondary transition-colors duration-200 leading-snug mb-2.5 line-clamp-2">
+                      {title}
+                    </h3>
+
+                    <p className="text-sm text-slate-600 leading-relaxed font-normal mb-6 line-clamp-3">
+                      {description}
+                    </p>
+                  </div>
+
+                  {/* Redesigned Sleek Metrics & Progress Bar */}
+                  <div className="pt-4 border-t border-slate-100 flex flex-col gap-3">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <span className="block text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                          {t("value")}
+                        </span>
+                        <span className="text-base sm:text-lg font-bold text-[#001833]">
+                          {value}
+                        </span>
+                      </div>
+                      <div className="text-center">
+                        <span className="block text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                          {t("year")}
+                        </span>
+                        <span className="text-base sm:text-lg font-semibold text-slate-700">
+                          {project.year}
+                        </span>
+                      </div>
+                      <div className="text-end">
+                        <span className="block text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                          {t("progress")}
+                        </span>
+                        <span
+                          className={`text-base sm:text-lg font-bold ${
+                            project.progress === 100 ? "text-emerald-600" : "text-secondary"
+                          }`}
+                        >
+                          {project.progress}%
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Refined Slim Progress Bar */}
+                    <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                      <div
+                        className={`h-full rounded-full transition-all duration-1000 ${
+                          project.progress === 100
+                            ? "bg-emerald-500"
+                            : "bg-gradient-to-r from-primary to-secondary"
+                        }`}
+                        style={{ width: `${project.progress}%` }}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        ))}
-      </div>
+            );
+          })}
+        </div>
+      )}
 
-      {/* Shadcn Pagination: displayed when total items exceed 12 */}
-      {filteredProjects.length > ITEMS_PER_PAGE && totalPages > 1 && (
+      {/* Shadcn Pagination */}
+      {!isLoading && !isError && totalPages > 1 && (
         <div className="mt-12 sm:mt-16 flex justify-center">
           <Pagination>
             <PaginationContent className="gap-1 sm:gap-2">

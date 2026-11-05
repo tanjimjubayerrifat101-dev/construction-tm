@@ -35,7 +35,7 @@ export interface CatalogItem {
   id: string;
   title: string;
   description: string;
-  image: StaticImageData;
+  image: StaticImageData | string;
   badge?: string;
 }
 
@@ -57,7 +57,7 @@ export interface ServiceItemData {
   shortTitle: string;
   heading: string;
   description: string;
-  image: StaticImageData;
+  image: StaticImageData | string;
   icon: LucideIcon;
   subDisciplines?: SubDiscipline[];
   tabHeading?: string;

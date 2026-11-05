@@ -7,6 +7,7 @@ import { Link } from "@/i18n/navigation";
 import SplitReveal from "@/utils/SplitReveal";
 import FadeUp from "@/utils/FadeUp";
 import defaultBg from "@/assets/home/blog1.png";
+import { resolveImageUrl } from "@/utils/resolveImageUrl";
 
 export type BreadcrumbsProps = {
 
@@ -35,6 +36,7 @@ export default function Breadcrumbs({
   const locale = useLocale();
   const localizedHomeLabel = homeLabel ?? (locale === "ar" ? "الرئيسية" : "Home");
   const isRtl = locale === "ar";
+  const imageSource = typeof image === "string" ? resolveImageUrl(image) || image : image;
 
   return (
     <section className="relative overflow-hidden pt-36 md:pt-44 pb-20 md:pb-28 text-white isolate">
@@ -45,10 +47,11 @@ export default function Breadcrumbs({
         className="pointer-events-none absolute inset-x-0 top-0 z-10 h-36 bg-linear-to-b from-black/60 via-black/40 to-transparent"
       />
       <Image
-        src={image}
+        src={imageSource}
         alt={imageAlt}
         fill
         priority
+        unoptimized={typeof image === "string"}
         sizes="100vw"
         className={`object-cover -z-20 scale-105 transition-transform duration-1000 ${isRtl ? "-scale-x-100" : ""}`}
       />
