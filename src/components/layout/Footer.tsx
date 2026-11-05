@@ -188,7 +188,7 @@ export default function Footer() {
                     aria-hidden="true"
                     className="h-5 w-5 text-gray-400 transition-colors group-hover:text-secondary"
                   />
-                </a>
+                </a> 
                 <a
                   href="https://www.facebook.com/tmyazna/"
                   target="_blank"
