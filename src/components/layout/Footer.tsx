@@ -4,7 +4,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import Image from "next/image";
 import logo from "@/assets/navbar/tmyzna-logo.png";
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 
 
 interface FooterLinkProps {
@@ -197,6 +197,18 @@ export default function Footer() {
                   className="group flex items-center justify-center transition-transform hover:-translate-y-1"
                 >
                   <FaFacebookF
+                    aria-hidden="true"
+                    className="h-5 w-5 text-gray-400 transition-colors group-hover:text-secondary"
+                  />
+                </a>
+                  <a
+                  href="https://x.com/tmyazna"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="group flex items-center justify-center transition-transform hover:-translate-y-1"
+                >
+                  <FaTwitter
                     aria-hidden="true"
                     className="h-5 w-5 text-gray-400 transition-colors group-hover:text-secondary"
                   />
