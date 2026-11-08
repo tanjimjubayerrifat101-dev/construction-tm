@@ -5,7 +5,7 @@ import { Link, usePathname } from "@/i18n/navigation";
 import Image from "next/image";
 import logo from "@/assets/navbar/tmyzna-logo.png";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
-
+import { FaXTwitter } from "react-icons/fa6";
 
 interface FooterLinkProps {
   href: string;
@@ -208,7 +208,7 @@ export default function Footer() {
                   aria-label="Facebook"
                   className="group flex items-center justify-center transition-transform hover:-translate-y-1"
                 >
-                  <FaTwitter
+                  <FaXTwitter
                     aria-hidden="true"
                     className="h-5 w-5 text-gray-400 transition-colors group-hover:text-secondary"
                   />
